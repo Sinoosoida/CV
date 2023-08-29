@@ -1,0 +1,242 @@
+\documentclass[letterpaper]{article}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+\usepackage{ulem}
+\usepackage{contour}
+\usepackage{latexsym}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{hyperref}
+\usepackage[a4paper, margin=0.25in]{geometry}
+
+\hypersetup{
+  colorlinks = true,
+  urlcolor   = RoyalBlue!75!white,
+}
+
+\raggedright
+\raggedbottom
+\urlstyle{same}
+\setlength{\tabcolsep}{0in}
+\AtBeginDocument{\normalem}
+
+\newlength{\uppercaseHeight}
+\AtBeginDocument{\settoheight{\uppercaseHeight}{A}}
+
+% Ensure output is parsable
+\pdfgentounicode=1
+\input{glyphtounicode}
+
+% Sections formatting
+\titleformat{\section}{\vspace{-9pt}\scshape\raggedright\large}{}{0em}{}[\color{gray}\titlerule\vspace{-7pt}]
+
+% Beautiful underline
+\renewcommand{\ULdepth}{2pt}
+\contourlength{1pt}
+
+\newcommand{\beauline}[1]{%
+  \uline{\phantom{#1}}%
+  \llap{\contour{white}{#1}}%
+}
+
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+    \item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      {\small#3} & \textit{\small #4} \\[-0.075em]
+    \end{tabular*} \\[-0.05em]
+}
+
+\newcommand{\resumeHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*} \vspace{-3pt}
+}
+
+\newcommand{\resumeSmallHeading}[1]{
+    \item {\small#1 \vspace{-0.75em}}
+}
+
+\newcommand\badgeStrut{\rule[-1pt]{0pt}{\uppercaseHeight}}
+\newtcbox{\badge}{
+  on line,
+  enhanced,
+  arc=3pt,
+  top=2pt,
+  left=5pt,
+  right=5pt,
+  bottom=2pt,
+  boxsep=0pt,
+  boxrule=0.25pt,
+  colback=white!95!gray,
+  enlarge bottom by=2pt,
+  fontupper=\scriptsize\badgeStrut\color{black},
+}
+\newcommand{\badges}[1]{
+  \foreach \b in #1 {
+    \badge{\b}\hspace{-3pt}
+  }
+}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.125in, label={}]}
+\newcommand{\resumeItemListStart}{\begin{itemize}\vspace{-4pt}}
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+
+\newcommand{\link}[2]{\href{#1}{\beauline{#2}}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\begin{document}
+
+% ------------------------------------------------------------ %
+
+\begin{center}
+	\textbf{\Huge Михаил Бохонко} \\[0.5em]
+	\link{mailto:bokhonko.ma@phystech.edu}{bokhonko.ma@phystech.edu} ~
+	\link{https://github.com/Sinoosoida}{github.com/Sinoosoida} ~
+	\link{https://t.me/Sinoosoida}{t.me/Sinoosoida}
+\end{center}
+
+% ------------------------------------------------------------ %
+
+\section{Обучение}
+\resumeSubHeadingListStart
+
+\resumeSubheading
+{Московский физико-технический институт}{2019 - 2024}
+{Компьютерные технологии}{Москва, Россия}
+
+\resumeSubHeadingListEnd
+
+
+% ------------------------------------------------------------ %
+
+\section{Проекты}
+\resumeSubHeadingListStart
+\resumeSubheading
+{Cutter}{2021 - наст. время}
+{Университетский проект}{Москва, Россия}
+\badges{{Python, MongoDB, ML, DL, Docker}}
+\resumeItemListStart
+\resumeItem{ПО для сокращения длины лекции с сохранением смысла}
+\resumeItem{Обработка одного часа видео занимает почти час, и сокращает длину в полтора-два раза}
+\resumeItem{В 2022-2023 я возглавил команду разработчиков из четырех человек в качестве руководителя группы.}
+\resumeItemListEnd
+\resumeSubheading
+{FMK}{2021 -- наст. время}
+{Pet-project}{Москва, Россия}
+\badges{{Python}}
+\resumeItemListStart
+\resumeItem{В этом проекте я отвечал за обработку изображений.}
+\resumeItemListEnd
+\resumeSubheading
+{\link{https://roscansat.com/}{CanSat in Russia} наноспутник}{2017 - 2019}
+{Наноспутник был разработан для участия в соревновании}{Дубна, Россия}
+\badges{{Processing, C, Программирование микроконтроллеров, 3D моделирование, Проектирование печатных плат}}
+\resumeItemListStart
+\resumeItem{Мною было написано программное обеспечение для наземной станции и самого спутника.}
+\resumeItem{Была разработана и создана печатная плата, ответственная за электропитание спутника.}
+\resumeItem{Также я отвечал за проектирование и расчет конструкции спутника.}
+\resumeItemListEnd
+\resumeSubheading
+{Веб-сервис переноса стиля изображений CHERTILO}{2017}
+{Проект выполнен в рамках образовательной программы}{Сочи, Россия}
+\badges{{Python, ML, DL}}
+\resumeItemListStart
+\resumeItem{Была обучена нейронная сеть для трансформации стилей изображений.}
+\resumeItem{Был создан веб-сервис для предоставления доступа к этой нейронной сети.}
+\resumeItemListEnd
+\resumeSubHeadingListEnd
+
+% ------------------------------------------------------------ %
+
+\section{Навыки}
+
+\resumeSubHeadingListStart
+
+\resumeSmallHeading
+{\textbf{Языки программирования}:\badges{{C++, Python, Bash, C, Processing}}}
+
+\resumeSmallHeading
+{\textbf{Базы данных}:\badges{{PostgresSQL, MongoDB}}}
+
+\resumeSmallHeading
+{\textbf{Технологии}:\badges{{Docker, Git}}}
+
+\resumeSmallHeading
+{\textbf{Разное}:\badges{{Linux, Figma, LaTeX}}}
+
+\resumeSmallHeading
+{\textbf{Иностранные языки}:\badges{{Русский (родной), Английский, Украинский}}}
+
+\resumeSubHeadingListEnd
+
+% ------------------------------------------------------------ %
+
+\section{Достижения}
+
+\resumeSubHeadingListStart
+
+\resumeHeading
+{Победитель игры-конкурса \textbf{предпринимательских компетенций}}{2023}
+
+\resumeHeading
+{Призер Международной экспериментальной физической олимпиады \textbf{IEPhO}}{2018}
+
+\resumeHeading
+{Призер Всероссийского конкурса научно-технологических проектов \textbf{Большие вызовы}}{2018}
+
+\resumeHeading
+{Призер московского конкурса научно-исследовательских и проектных работ}{2018}
+
+\resumeHeading
+{Победитель \textbf{Интеллектуального биатлона}}{2018}
+
+\resumeHeading
+{Призер заключительного этапа ВСОШ по \textbf{физике}}{2017 - 2019}
+
+\resumeHeading
+{Призер муниципальных и региональных этапов ВСОШ по \textbf{математике, информатике, физике, экономике}}{2017 - 2019}
+
+\resumeSubHeadingListEnd
+
+% ------------------------------------------------------------ %
+
+\section{Интересы}
+
+\resumeSubHeadingListStart
+
+\resumeSmallHeading{\badges{{Разработка бэкенда, Машинное обучение, Глубокое обучение}}}
+
+\resumeSmallHeading{\badges{{Криптография}}}
+
+\resumeSubHeadingListEnd
+
+% ------------------------------------------------------------ %
+
+\section{Опыт преподавания}
+\resumeSubHeadingListStart
+\resumeSubheading
+{Выездной физический лагерь}{2019}
+{Ассистент преподавателя физики}{Беларусь}
+\badges{{Физика}}
+\resumeSubHeadingListEnd
+
+% ------------------------------------------------------------ %
+
+\end{document}
